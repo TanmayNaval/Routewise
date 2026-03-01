@@ -33,6 +33,8 @@ def destination_node(state: TravelState) -> dict:
     if state.get("wants_hotel"):
         system_prompt += " The user also requested hotel recommendations. You MUST include a list of 2-3 specific real-world hotels for each destination that fit within the specified price per night range."
         user_prompt += f" RECALL: The user needs hotel suggestions. They require {state.get('rooms')} rooms for {state.get('guests')} guests. The price per night MUST be roughly within the {state.get('price_per_night')} INR range. Populate the 'recommended_hotels' field!"
+    else:
+        system_prompt += " The user DOES NOT want hotel recommendations. You MUST leave the 'recommended_hotels' JSON field completely empty. Do not suggest any lodging."
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),

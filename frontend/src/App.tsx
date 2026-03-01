@@ -189,7 +189,7 @@ function AIPlannerSection() {
         ev_brand: evBrand,
         ev_model: evModel,
         ev_battery: evBattery,
-        ev_range: evRange,
+        ev_range: parseInt(evRange) || 0,
         // Optional Hotel Parameters
         wants_hotel: wantsHotel,
         check_in_date: checkInDate,
