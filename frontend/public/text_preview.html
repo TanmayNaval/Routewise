@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#fcfcfc',
+                        'brand-dark': '#2A2421',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-bg text-brand-dark antialiased font-sans h-screen flex items-center justify-center p-12">
+
+    <div class="w-full flex justify-center">
+        <!-- New Text Preview -->
+        <h1
+            class="text-6xl lg:text-[80px] leading-[1.1] font-black tracking-tight text-brand-dark uppercase text-center max-w-4xl">
+            Plan your <span class="italic font-medium">Escape</span> <br />
+            <span class="text-4xl lg:text-5xl text-brand-dark/50 tracking-normal mt-4 block">— Without the planning
+                stress</span>
+        </h1>
+    </div>
+
+</body>
+
+</html>

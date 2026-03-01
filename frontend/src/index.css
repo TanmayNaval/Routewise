@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-dark antialiased font-sans selection:bg-brand-dark/20;
+  }
+}
+
+/* Modern Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black/10 rounded-full cursor-pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-black/20;
+}
+
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl;
+}
+
+/* Animated Airplane Button */
+.animated-btn {
+  width: 250px;
+  height: 60px;
+  border-radius: 9999px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-btn:hover {
+  @apply shadow-2xl;
+}
+
+.animated-btn .btn-icon {
+  position: absolute;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.animated-btn .btn-text {
+  transform: translateX(65px);
+  white-space: nowrap;
+  transition: all 0.5s;
+}
+
+.animated-btn:hover .btn-icon {
+  width: 240px;
+}
+
+.animated-btn:hover .btn-text {
+  opacity: 0;
+}
+
+.animated-btn:active .btn-icon {
+  transform: scale(0.85);
+}
