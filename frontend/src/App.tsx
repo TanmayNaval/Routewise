@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser, useClerk } from '@clerk/clerk-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean, error: Error | null }> {
   constructor(props: { children: React.ReactNode }) {
     super(props);
@@ -173,7 +175,7 @@ function AIPlannerSection() {
     setResults(null);
 
     try {
-      const response = await axios.post<TripState>('http://localhost:8000/api/plan-trip', {
+      const response = await axios.post<TripState>(`${API_BASE_URL}/api/plan-trip`, {
         destination,
         days,
         budget,
@@ -229,7 +231,7 @@ function AIPlannerSection() {
 
     setSaveStatus('saving');
     try {
-      await axios.post('http://localhost:8000/api/trips/save', {
+      await axios.post(`${API_BASE_URL}/api/trips/save`, {
         user_id: user.id,
         destination: destination,
         trip_data: results
