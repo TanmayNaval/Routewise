@@ -27,8 +27,8 @@ def itinerary_node(state: TravelState) -> dict:
     user_prompt = "Create a {days}-day itinerary for {destination_list}. The travel style is {travel_style}. Top attractions available: {attractions}."
     
     if state.get("wants_hotel"):
-        system_prompt += " The user wants Hotel Recommendations integrated into the itinerary."
-        user_prompt += f" RECALL: The user needs hotel recommendations. They are traveling with {state.get('guests')} guests in {state.get('rooms')} rooms. Check-in is {state.get('check_in_date')} and Check-out is {state.get('check_out_date')}. You MUST explicitly suggest checking into a suitable hotel (within the {state.get('price_per_night')} INR/night range) on the first day, and checking out on the last day."
+        system_prompt += " The user wants Hotel Recommendations integrated into the itinerary. CRITICAL: DO NOT mention the hotel's nightly price (e.g., 'INR 18000/night') in the daily itinerary text. Keep the itinerary clean and focused on action items."
+        user_prompt += f" RECALL: The user needs hotel recommendations. They are traveling with {state.get('guests')} guests in {state.get('rooms')} rooms. Check-in is {state.get('check_in_date')} and Check-out is {state.get('check_out_date')}. You MUST explicitly suggest checking into a suitable hotel on the first day, and checking out on the last day, BUT DO NOT print the price in the itinerary schedule."
     
     # Extract route details to get distance and travel time
     route_details = state.get("route_details", {})
