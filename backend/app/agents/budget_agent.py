@@ -4,8 +4,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from app.models.state import TravelState
 from app.agents.destination_agent import get_llm
 
+class EstimatedBudget(BaseModel):
+    stay: int = Field(description="Estimated cost for stay in INR")
+    food: int = Field(description="Estimated cost for food in INR")
+    transport: int = Field(description="Estimated cost for transport in INR")
+    activities: int = Field(description="Estimated cost for activities in INR")
+    total: int = Field(description="Total estimated cost in INR")
+
 class BudgetOutput(BaseModel):
-    estimated_budget: Dict[str, int] = Field(description="Dictionary with keys: stay, food, transport, activities, total")
+    estimated_budget: EstimatedBudget = Field(description="The breakdown of estimated costs.")
     budget_tips: List[str] = Field(description="List of tips to save money")
 
 def budget_node(state: TravelState) -> dict:
