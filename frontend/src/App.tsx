@@ -731,7 +731,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto w-full px-6 lg:px-12 pt-10 pb-20">
+      <main className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto w-full px-6 lg:px-12 pt-10 pb-20 min-h-[85vh] lg:min-h-0">
 
         {/* Left Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-start gap-8 z-20">
