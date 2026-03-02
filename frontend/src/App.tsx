@@ -269,12 +269,12 @@ function AIPlannerSection() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="bg-white w-full max-w-5xl rounded-3xl shadow-xl overflow-hidden relative flex flex-col"
           >
-            <div className="sticky top-0 bg-white/90 backdrop-blur-md z-20 px-8 py-5 border-b border-gray-100 flex justify-between items-center">
-              <h2 className="text-2xl font-bold tracking-tight text-brand-dark flex items-center gap-2">
-                <span className="bg-brand-dark text-white p-1.5 rounded-lg"><Globe2 className="w-5 h-5" /></span>
+            <div className="sticky top-0 bg-white/90 backdrop-blur-md z-20 px-4 md:px-8 py-4 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-brand-dark flex items-center gap-2">
+                <span className="bg-brand-dark text-white p-1.5 rounded-lg"><Globe2 className="w-4 h-4 md:w-5 md:h-5" /></span>
                 Plan Your Trip
               </h2>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-2 md:gap-4 w-full md:w-auto">
                 <SignedIn>
                   <button
                     onClick={() => setCurrentView('my-trips')}
@@ -294,7 +294,7 @@ function AIPlannerSection() {
               </div>
             </div>
 
-            <div className="p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               {currentView === 'my-trips' ? (
                 <SavedTripsDashboard onOpenTrip={handleOpenSavedTrip} />
               ) : !results ? (
@@ -470,7 +470,7 @@ function AIPlannerSection() {
                       </div>
 
                       {wantsHotel && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in mt-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fade-in mt-4">
                           <div className="space-y-2">
                             <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Check-in Date</label>
                             <input type="date" required={wantsHotel} value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-blue-600 outline-none transition-all text-sm" />
@@ -697,9 +697,9 @@ function App() {
       </div>
 
       {/* Navbar */}
-      <header className="relative z-10 px-6 lg:px-12 py-6 flex items-center justify-between">
+      <header className="relative z-10 px-4 sm:px-6 lg:px-12 py-4 md:py-6 flex items-center justify-between">
         <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <img src="/logo.png" alt="Routewise Logo" className="h-20 md:h-[90px] w-auto object-contain mix-blend-multiply origin-left scale-110" />
+          <img src="/logo.png" alt="Routewise Logo" className="h-12 sm:h-16 md:h-[90px] w-auto object-contain mix-blend-multiply origin-left scale-110" />
         </div>
 
         {/* Authentication Section */}
@@ -742,9 +742,9 @@ function App() {
           </h1> */}
 
           {/* New Title Format */}
-          <h1 className="text-6xl lg:text-[80px] leading-[1.1] font-black tracking-tight text-brand-dark uppercase">
+          <h1 className="text-5xl sm:text-6xl lg:text-[80px] leading-[1.1] font-black tracking-tight text-brand-dark uppercase">
             Plan your <span className="italic font-medium">Escape</span> <br />
-            <span className="text-4xl lg:text-5xl text-black font-normal tracking-normal mt-2 lg:mt-4 block">— Without the planning stress</span>
+            <span className="text-2xl sm:text-3xl lg:text-5xl text-black font-normal tracking-normal mt-2 lg:mt-4 block">— Without the planning stress</span>
           </h1>
 
           <p className="text-lg md:text-xl font-medium text-brand-dark/80 max-w-md leading-relaxed">
@@ -766,112 +766,114 @@ function App() {
 
         {/* Right Content - Phone Mockup */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-16 lg:mt-0 z-20 perspective-1000">
-          <div className="relative w-[340px] h-[700px] bg-[#97D4E7] rounded-[3rem] border-[14px] border-[#313036] shadow-2xl overflow-hidden flex flex-col transform md:rotate-y-[-5deg] md:rotate-z-[2deg] transition-transform duration-500 hover:rotate-0">
-            {/* Phone Top / Dynamic Island */}
-            <div className="absolute top-0 w-full h-8 flex justify-center items-start pt-3 z-30">
-              <div className="w-28 h-7 bg-black rounded-full flex items-center justify-center -mt-1 shadow-inner relative z-50">
-                <div className="w-2 h-2 rounded-full bg-blue-900/40 absolute left-4"></div>
+          <div className="transform scale-[0.85] sm:scale-100 origin-top flex justify-center">
+            <div className="relative w-[300px] sm:w-[340px] h-[600px] sm:h-[700px] bg-[#97D4E7] rounded-[2.5rem] sm:rounded-[3rem] border-[10px] sm:border-[14px] border-[#313036] shadow-2xl overflow-hidden flex flex-col transform md:rotate-y-[-5deg] md:rotate-z-[2deg] transition-transform duration-500 hover:rotate-0">
+              {/* Phone Top / Dynamic Island */}
+              <div className="absolute top-0 w-full h-8 flex justify-center items-start pt-3 z-30">
+                <div className="w-28 h-7 bg-black rounded-full flex items-center justify-center -mt-1 shadow-inner relative z-50">
+                  <div className="w-2 h-2 rounded-full bg-blue-900/40 absolute left-4"></div>
+                </div>
               </div>
-            </div>
-            {/* Status Bar */}
-            <div className="absolute top-4 left-6 right-6 flex justify-between items-center text-xs font-semibold z-20 text-brand-dark">
-              <span>9:41</span>
-              <div className="flex items-center gap-1.5 opacity-80">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C14.6 15.4 13.3 15 12 15C10.7 15 9.4 15.4 8.4 16.2L12 21ZM12 3C7.9 3 4.2 4.6 1.4 7.2L3.2 9.6C5.5 7.4 8.6 6 12 6C15.4 6 18.5 7.4 20.8 9.6L22.6 7.2C19.8 4.6 16.1 3 12 3Z" /></svg>
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2H10V4H8.33C7.6 4 7 4.6 7 5.33V20.67C7 21.4 7.6 22 8.33 22H15.67C16.4 22 17 21.4 17 20.67V5.33C17 4.6 16.4 4 15.67 4Z" /></svg>
-              </div>
-            </div>
-
-            {/* Decorative line on blue background */}
-            <svg className="absolute top-12 left-0 w-full z-0 opacity-40 mix-blend-overlay" viewBox="0 0 340 100" fill="none">
-              <path d="M-20,80 C80,20 180,120 280,40 C330,0 360,20 360,20" stroke="white" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-
-            {/* Phone Content */}
-            <div className="flex-1 mt-20 px-6 z-10 flex flex-col">
-              <h2 className="text-2xl font-bold mb-4">My Trips</h2>
-
-              <div className="flex gap-4 text-xs font-bold uppercase tracking-wide text-brand-dark/60 mb-6">
-                <span className="text-brand-dark border-b-2 border-brand-dark pb-1">Upcoming</span>
-                <span>Wishlist</span>
-                <span>Recently Viewed</span>
-              </div>
-
-              {/* White Card */}
-              <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm border border-gray-100">
-                <span className="text-[#888] text-[10px] font-semibold uppercase tracking-wider mb-1 block">Tips for your trip</span>
-                <h3 className="font-bold text-sm mb-2">Make copies of important documents</h3>
-                <p className="text-[10px] text-gray-500 leading-relaxed">
-                  Make extra copies of your passport and important documents. Place them in your luggage and/or keep photos of them on your phone.
-                </p>
-                <div className="flex gap-1 justify-center mt-3">
-                  <div className="w-1 h-1 bg-black rounded-full" />
-                  <div className="w-1 h-1 bg-gray-300 rounded-full" />
-                  <div className="w-1 h-1 bg-gray-300 rounded-full" />
-                  <div className="w-1 h-1 bg-gray-300 rounded-full" />
+              {/* Status Bar */}
+              <div className="absolute top-4 left-6 right-6 flex justify-between items-center text-xs font-semibold z-20 text-brand-dark">
+                <span>9:41</span>
+                <div className="flex items-center gap-1.5 opacity-80">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C14.6 15.4 13.3 15 12 15C10.7 15 9.4 15.4 8.4 16.2L12 21ZM12 3C7.9 3 4.2 4.6 1.4 7.2L3.2 9.6C5.5 7.4 8.6 6 12 6C15.4 6 18.5 7.4 20.8 9.6L22.6 7.2C19.8 4.6 16.1 3 12 3Z" /></svg>
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2H10V4H8.33C7.6 4 7 4.6 7 5.33V20.67C7 21.4 7.6 22 8.33 22H15.67C16.4 22 17 21.4 17 20.67V5.33C17 4.6 16.4 4 15.67 4Z" /></svg>
                 </div>
               </div>
 
-              {/* Green Card */}
-              <div className="bg-[#EAECE0] rounded-2xl p-5 flex-1 shadow-sm relative overflow-hidden flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-lg">Exotic Bali</h3>
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
-                    <ChevronDown className="w-4 h-4 text-gray-400 rotate-180" />
+              {/* Decorative line on blue background */}
+              <svg className="absolute top-12 left-0 w-full z-0 opacity-40 mix-blend-overlay" viewBox="0 0 340 100" fill="none">
+                <path d="M-20,80 C80,20 180,120 280,40 C330,0 360,20 360,20" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+
+              {/* Phone Content */}
+              <div className="flex-1 mt-20 px-6 z-10 flex flex-col">
+                <h2 className="text-2xl font-bold mb-4">My Trips</h2>
+
+                <div className="flex gap-4 text-xs font-bold uppercase tracking-wide text-brand-dark/60 mb-6">
+                  <span className="text-brand-dark border-b-2 border-brand-dark pb-1">Upcoming</span>
+                  <span>Wishlist</span>
+                  <span>Recently Viewed</span>
+                </div>
+
+                {/* White Card */}
+                <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm border border-gray-100">
+                  <span className="text-[#888] text-[10px] font-semibold uppercase tracking-wider mb-1 block">Tips for your trip</span>
+                  <h3 className="font-bold text-sm mb-2">Make copies of important documents</h3>
+                  <p className="text-[10px] text-gray-500 leading-relaxed">
+                    Make extra copies of your passport and important documents. Place them in your luggage and/or keep photos of them on your phone.
+                  </p>
+                  <div className="flex gap-1 justify-center mt-3">
+                    <div className="w-1 h-1 bg-black rounded-full" />
+                    <div className="w-1 h-1 bg-gray-300 rounded-full" />
+                    <div className="w-1 h-1 bg-gray-300 rounded-full" />
+                    <div className="w-1 h-1 bg-gray-300 rounded-full" />
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 mb-6 text-[10px] font-medium text-brand-dark">
-                  <div className="flex -space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-blue-400 border border-white"></div>
-                    <div className="w-6 h-6 rounded-full bg-yellow-400 border border-white flex justify-center items-center text-[8px]">S</div>
-                    <div className="w-6 h-6 rounded-full bg-orange-400 border border-white flex justify-center items-center text-[8px]">K</div>
-                    <div className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[8px] text-gray-600">+6</div>
-                  </div>
-                  <span className="ml-1 opacity-70">10 friends have been there</span>
-                </div>
-
-                <div className="flex items-start gap-1.5 mb-4 text-[11px] font-medium">
-                  <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-                  <span>The Bali Dream Villa & Resort Echo Beach</span>
-                </div>
-
-                <div className="flex justify-between items-center mb-6 text-xs mt-auto">
-                  <span className="font-semibold">Nov 24 - Dec 2</span>
-                  <button className="px-3 py-1.5 border border-brand-dark/20 rounded-full text-[10px] font-semibold hover:bg-white transition-colors tracking-wide">Explore</button>
-                </div>
-
-                {/* Sub Card */}
-                <div className="bg-[#DDE2C6] rounded-xl p-3 flex gap-3 relative before:absolute before:left-[-1px] before:top-[-10px] before:bottom-6 before:w-[2px] before:bg-brand-dark/20 before:rounded">
-                  <div className="absolute left-[-4.5px] top-[-10px] w-2 h-2 rounded-full border-2 border-brand-dark/30 bg-[#EAECE0] z-10" />
-                  <div className="w-16 h-16 bg-gray-300 rounded-lg overflow-hidden shrink-0">
-                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover" alt="Monkey Forest" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-xs mb-1">Ubud Monkey Forest</h4>
-                    <div className="flex flex-col gap-1 text-[10px] text-brand-dark/70">
-                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> Nov 24</span>
-                      <span className="flex items-center gap-1"><User className="w-3 h-3" /> 2 adults</span>
+                {/* Green Card */}
+                <div className="bg-[#EAECE0] rounded-2xl p-5 flex-1 shadow-sm relative overflow-hidden flex flex-col">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="font-bold text-lg">Exotic Bali</h3>
+                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm">
+                      <ChevronDown className="w-4 h-4 text-gray-400 rotate-180" />
                     </div>
                   </div>
+
+                  <div className="flex items-center gap-2 mb-6 text-[10px] font-medium text-brand-dark">
+                    <div className="flex -space-x-2">
+                      <div className="w-6 h-6 rounded-full bg-blue-400 border border-white"></div>
+                      <div className="w-6 h-6 rounded-full bg-yellow-400 border border-white flex justify-center items-center text-[8px]">S</div>
+                      <div className="w-6 h-6 rounded-full bg-orange-400 border border-white flex justify-center items-center text-[8px]">K</div>
+                      <div className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[8px] text-gray-600">+6</div>
+                    </div>
+                    <span className="ml-1 opacity-70">10 friends have been there</span>
+                  </div>
+
+                  <div className="flex items-start gap-1.5 mb-4 text-[11px] font-medium">
+                    <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                    <span>The Bali Dream Villa & Resort Echo Beach</span>
+                  </div>
+
+                  <div className="flex justify-between items-center mb-6 text-xs mt-auto">
+                    <span className="font-semibold">Nov 24 - Dec 2</span>
+                    <button className="px-3 py-1.5 border border-brand-dark/20 rounded-full text-[10px] font-semibold hover:bg-white transition-colors tracking-wide">Explore</button>
+                  </div>
+
+                  {/* Sub Card */}
+                  <div className="bg-[#DDE2C6] rounded-xl p-3 flex gap-3 relative before:absolute before:left-[-1px] before:top-[-10px] before:bottom-6 before:w-[2px] before:bg-brand-dark/20 before:rounded">
+                    <div className="absolute left-[-4.5px] top-[-10px] w-2 h-2 rounded-full border-2 border-brand-dark/30 bg-[#EAECE0] z-10" />
+                    <div className="w-16 h-16 bg-gray-300 rounded-lg overflow-hidden shrink-0">
+                      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover" alt="Monkey Forest" />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <h4 className="font-bold text-xs mb-1">Ubud Monkey Forest</h4>
+                      <div className="flex flex-col gap-1 text-[10px] text-brand-dark/70">
+                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> Nov 24</span>
+                        <span className="flex items-center gap-1"><User className="w-3 h-3" /> 2 adults</span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-
               </div>
-            </div>
 
-            {/* Bottom Nav */}
-            <div className="h-16 bg-white w-full z-20 flex justify-around items-center px-4 pt-1 pb-2 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] text-[10px] text-gray-400 font-semibold mb-2">
-              <div className="flex flex-col items-center gap-1"><Home className="w-5 h-5" /> Home</div>
-              <div className="flex flex-col items-center gap-1"><Briefcase className="w-5 h-5" /> Book</div>
-              <div className="flex flex-col items-center gap-1 text-black relative">
-                <Map className="w-5 h-5" /> My Trips
-                <div className="w-1 h-1 bg-black rounded-full absolute -bottom-2" />
+              {/* Bottom Nav */}
+              <div className="h-16 bg-white w-full z-20 flex justify-around items-center px-4 pt-1 pb-2 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] text-[10px] text-gray-400 font-semibold mb-2">
+                <div className="flex flex-col items-center gap-1"><Home className="w-5 h-5" /> Home</div>
+                <div className="flex flex-col items-center gap-1"><Briefcase className="w-5 h-5" /> Book</div>
+                <div className="flex flex-col items-center gap-1 text-black relative">
+                  <Map className="w-5 h-5" /> My Trips
+                  <div className="w-1 h-1 bg-black rounded-full absolute -bottom-2" />
+                </div>
+                <div className="flex flex-col items-center gap-1"><User className="w-5 h-5" /> Profile</div>
               </div>
-              <div className="flex flex-col items-center gap-1"><User className="w-5 h-5" /> Profile</div>
-            </div>
-            {/* Home indicator */}
-            <div className="absolute bottom-2 w-full flex justify-center z-30">
-              <div className="w-32 h-1 bg-black rounded-full" />
+              {/* Home indicator */}
+              <div className="absolute bottom-2 w-full flex justify-center z-30">
+                <div className="w-32 h-1 bg-black rounded-full" />
+              </div>
             </div>
           </div>
         </div>
@@ -898,7 +900,7 @@ function SavedTripsDashboard({ onOpenTrip }: { onOpenTrip: (trip: TripState) => 
     if (!user) return;
 
     // Fetch trips from MongoDB Backend
-    axios.get(`http://localhost:8000/api/trips/${user.id}`)
+    axios.get(`${API_BASE_URL}/api/trips/${user.id}`)
       .then(res => {
         setSavedTrips(res.data.trips || []);
       })
