@@ -764,8 +764,8 @@ function App() {
           </button>
         </div>
 
-        {/* Right Content - Phone Mockup */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-16 lg:mt-0 z-20 perspective-1000">
+        {/* Right Content - Phone Mockup (Hidden on Mobile) */}
+        <div className="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end mt-16 lg:mt-0 z-20 perspective-1000">
           <div className="transform scale-[0.85] sm:scale-100 origin-top flex justify-center">
             <div className="relative w-[300px] sm:w-[340px] h-[600px] sm:h-[700px] bg-[#97D4E7] rounded-[2.5rem] sm:rounded-[3rem] border-[10px] sm:border-[14px] border-[#313036] shadow-2xl overflow-hidden flex flex-col transform md:rotate-y-[-5deg] md:rotate-z-[2deg] transition-transform duration-500 hover:rotate-0">
               {/* Phone Top / Dynamic Island */}
